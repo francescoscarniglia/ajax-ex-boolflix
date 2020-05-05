@@ -89,7 +89,9 @@ function reset(element) {
 
 
 function stars(iconStar){
-  var iconFull =
+  var iconFull = '<i class="fas fa-star"></i>';
+  var iconFull = '<i class="far fa-star"></i>';
+  
   return Math.ceil(iconStar / 2);
 
 }
