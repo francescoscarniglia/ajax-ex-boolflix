@@ -11,12 +11,14 @@ $(document).ready(function(){
 
   // prendi il valore
   searchBtn.click(function(){
+  reset(movieList);
 
   // ottieni testo da input
   var query = searchInput.val().trim();
 
   // minimo controllo su testo inserito
   if(query !== '') {
+      // film
       $.ajax({
         url: 'https://api.themoviedb.org/3/search/movie/',
         method : 'GET',
@@ -30,17 +32,45 @@ $(document).ready(function(){
 
             if(movies.length > 0){
 
-              print(template, movies, movieList, 'film');
+              print(template, movies, movieList, 'Film');
 
             } else {
-              alert('Nessun film trovato')
-              searchInput.select();
+              console.log('Nessun film trovato');
+
             }
 
         }, error:function(){
           alert('Errore chiamata API')
         }
       });
+
+  // serie tv
+  $.ajax({
+    url: 'https://api.themoviedb.org/3/search/tv/',
+    method : 'GET',
+    data: {
+      api_key : 'd0f8455fc395e60bede1e8769f1753e2',
+      query : query,
+      language : 'it-IT'
+    },
+    success: function(response){
+        var movies = response.results;
+
+        if(movies.length > 0){
+
+          print(template, movies, movieList, 'Tv');
+
+
+        } else {
+          console.log('Nessun film trovato');
+
+        }
+
+    }, error:function(){
+      alert('Errore chiamata API')
+    }
+  });
+
   } else {
     alert('Prego inserire un valore nella ricerca')
     searchInput.focus();
@@ -54,19 +84,30 @@ $(document).ready(function(){
 // *************** functions ********************
 // **********************************************
 
-function print(template, movies, container) {
+function print(template, movies, container, type) {
 
-  reset(container);
+  //reset(container);
   // loop sugli elementi dell'array movies
 
   for(var i= 0; i < movies.length; i++){
     var movie = movies[i];
 
+    var title, originalTitle; // più variabili
+
+    if (type == 'Film') {
+      title = movie.title;
+      originalTitle = movie.name;
+    } else if(type == 'Tv') {
+      title = movie.title;
+      originalTitle = movie.original_name;
+    }
+
     var context = {
-      title : movie.title,
-      originalTitle : movie.original_title,
+      title : title ,
+      originalTitle : originalTitle ,
       language: flags(movie.original_language),
-      vote: stars(movie.vote_average)
+      vote: stars(movie.vote_average),
+      type : type
     };
 
     var output = template(context);
@@ -107,4 +148,5 @@ function flags(lang){
     var flag = '<img src="img/' + lang + '.svg" + alt="' + lang + '" class="lang" />';
     return flag;
   }
+  return lang;
 }; // flags
