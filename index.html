@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+ <link rel="stylesheet" href="css/fontawesome-all.min.css">
   <link rel="stylesheet" href="css/master.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ajax-ex-boolfix | F.sco scarniglia</title>
@@ -16,10 +16,11 @@
     </header>
     <main class="movie-list">
 
-      
     </main>
-    <i class="fas fa-star"></i>
-    <i class="far fa-star"></i>
+
+    <!-- esempio debug -->
+    <!-- <img src='img/en.svg' alt='bg' class='lang'/> -->
+
 </div><!-- container -->
 
 <!-- templates -->
@@ -39,13 +40,20 @@
 
       <li>
         <span>Lingua: </span>
-        <span>{{ language }}</span>
+        <span>{{{ language }}}</span>
       </li>
 
       <li>
         <span>Voto: </span>
-        <span>{{ vote }}</span>
+        <span>{{{ vote }}}</span>
       </li>
+
+
+      <li>
+        <span>Tipo: </span>
+        <span>{{ type }}</span>
+      </li>
+
     </ul>
   </div><!-- movie -->
 

@@ -30,10 +30,10 @@ $(document).ready(function(){
 
             if(movies.length > 0){
 
-              print(template, movies, movieList);
+              print(template, movies, movieList, 'film');
 
             } else {
-              alert('Nessun film trovato compa fra prova con un altro mestiere')
+              alert('Nessun film trovato')
               searchInput.select();
             }
 
@@ -46,20 +46,15 @@ $(document).ready(function(){
     searchInput.focus();
   }
 
-
-  });
-
-var number = 29;
-console.log(stars(number));
+}); // searchBtn
 
 }); // ready
 
-
-// functions
-
+// **********************************************
+// *************** functions ********************
+// **********************************************
 
 function print(template, movies, container) {
-  //container.html('');
 
   reset(container);
   // loop sugli elementi dell'array movies
@@ -70,28 +65,46 @@ function print(template, movies, container) {
     var context = {
       title : movie.title,
       originalTitle : movie.original_title,
-      language: movie.original_language,
-      vote: movie.vote_average
+      language: flags(movie.original_language),
+      vote: stars(movie.vote_average)
     };
 
     var output = template(context);
 
     container.append(output);
 
-  }
-}
+  } // for
+}; // print
 
 //reset contenuto elemento
-
 function reset(element) {
   element.html('');
-}
+}; // reset function
 
+// converti numeri in stelle
+function stars(rating){
 
-function stars(iconStar){
-  var iconFull = '<i class="fas fa-star"></i>';
-  var iconFull = '<i class="far fa-star"></i>';
-  
-  return Math.ceil(iconStar / 2);
+    var vote = Math.ceil(rating / 2);
 
-}
+    var stars = '';
+    for (var i= 1; i <= 5; i++){
+      if(i <= vote){
+        stars += '<i class="fas fa-star"></i> ';
+      } else{
+        stars += '<i class="far fa-star"></i> ';
+      }
+    }
+    return stars;
+  }; // stars
+
+// converti lingua in bandiera
+function flags(lang){
+  var languages = ['it',
+                  'en'
+                ];
+
+  if(languages.includes(lang)) {
+    var flag = '<img src="img/' + lang + '.svg" + alt="' + lang + '" class="lang" />';
+    return flag;
+  }
+}; // flags
