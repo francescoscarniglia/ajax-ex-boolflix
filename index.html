@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="css/master.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax-ex-boolfix | F.sco scarniglia</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <input type="text" id="query-search" placeholder="Scrivi il titolo di un film" >
+      <button id="btn-search">cerca</button>
+    </header>
+    <main class="movie-list">
+
+      
+    </main>
+    <i class="fas fa-star"></i>
+    <i class="far fa-star"></i>
+</div><!-- container -->
+
+<!-- templates -->
+<script id="movie-template" type="text/x-handlebars-template">
+  <div class="movie">
+    <ul>
+
+      <li>
+        <span>Titolo: </span>
+        <span> {{ title }}</span>
+      </li>
+
+      <li>
+        <span>Titolo originale:</span>
+        <span>{{ originalTitle }}</span>
+      </li>
+
+      <li>
+        <span>Lingua: </span>
+        <span>{{ language }}</span>
+      </li>
+
+      <li>
+        <span>Voto: </span>
+        <span>{{ vote }}</span>
+      </li>
+    </ul>
+  </div><!-- movie -->
+
+</script>
+
+
+
+<script src="js/jquery-3.5.0.min.js"></script>
+<script src='js/handlebars.min-v4.7.6.js'></script>
+<script src="js/main.js"></script>
+</body>
+</html>
