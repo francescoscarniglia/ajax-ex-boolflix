@@ -5,6 +5,13 @@ $(document).ready(function(){
   var searchBtn = $('#btn-search');
   var movieList = $('.movie-list');
 
+  // prove debug
+  var btnProve =$('#prove');
+  btnProve.click(function(){
+    callMovie();
+    //console.log(callMovie);
+  });
+
   // creazione template handlebars
   var source= $('#movie-template').html();
   var template = Handlebars.compile(source);
@@ -86,7 +93,6 @@ $(document).ready(function(){
 
 function print(template, movies, container, type) {
 
-  //reset(container);
   // loop sugli elementi dell'array movies
 
   for(var i= 0; i < movies.length; i++){
@@ -150,3 +156,24 @@ function flags(lang){
   }
   return lang;
 }; // flags
+
+
+// milestone 3
+function callMovie (movie, tv) {
+    var movie = {
+    "valore 1": "valore 1",
+    "valore 2": "valore 2"
+      };
+      var tv = {
+      "valore 3": "valore 3",
+      "valore 4": "valore 4"
+        };
+
+      $.each( movie, function(movie, tv) {
+        console.log( movie + ": " + tv );
+      });
+
+      $.each( tv, function(movie, tv) {
+        console.log( movie + ": " + tv );
+      });
+}
