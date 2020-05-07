@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 // milestone 3
 function getData(dataMovie, template, movieList) {
-  // film
+
   $.ajax({
     url: dataMovie.url,
     method : 'GET',
