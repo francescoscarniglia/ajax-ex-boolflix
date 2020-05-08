@@ -111,13 +111,21 @@ function print(template, movies, container, type) {
       title = movie.title;
       originalTitle = movie.original_name;
     }
+    // gestione poster
+
+    // default
+    var poster =  'img/no-poster.png';
+    if(movie.poster_path){
+      poster = 'https://image.tmdb.org/t/p/w342/' + movie.poster_path
+    }
 
     var context = {
       title : title ,
       originalTitle : originalTitle ,
       language: flags(movie.original_language),
       vote: stars(movie.vote_average),
-      type : type
+      type : type,
+      poster : poster
     };
 
     var output = template(context);
