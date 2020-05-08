@@ -22,12 +22,13 @@
 
 
 .main-header {
-  background: green;
+  background: #000;
   height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 12px;
+  font-family: 'Oswald', sans-serif;
 }
 
 
@@ -38,4 +39,39 @@
   background: url(../img/boolflix.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#query-search ,
+#btn-search {
+  font-size: 14px;
+  background: #fff;
+  border:0;
+  padding: 6px;
+  text-transform: uppercase;
+}
+
+#btn-search {
+  background: red;
+  color: #fff;
+  margin-left: 10px;
+}
+.header-search {
+  display: inline-flex;
+}
+
+.header-search  #query-search {
+  width: 180px;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 100;
+  border-bottom: 1px solid #fff;
+}
+
+.header-search  #query-search:focus {
+  width: 280px;
+  z-index: 1;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  outline: none;
 }
