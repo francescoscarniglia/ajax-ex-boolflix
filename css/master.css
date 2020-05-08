@@ -1,3 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .movie .lang {
   width: 25px;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie {
+  flex-grow: 1;
+  background: red;
+  padding: 12px;
+}
+
+
+.main-header {
+  background: green;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px;
+}
+
+
+.logo
+{
+  height: 60px;
+  width: 100px;
+  background: url(../img/boolflix.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
