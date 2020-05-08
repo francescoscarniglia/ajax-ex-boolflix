@@ -125,7 +125,8 @@ function print(template, movies, container, type) {
       language: flags(movie.original_language),
       vote: stars(movie.vote_average),
       type : type,
-      poster : poster
+      poster : poster,
+      overview : movie.overview.substr(0, 100)  + '...'
     };
 
     var output = template(context);
