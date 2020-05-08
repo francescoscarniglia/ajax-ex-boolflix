@@ -9,8 +9,30 @@ $(document).ready(function(){
   var source= $('#movie-template').html();
   var template = Handlebars.compile(source);
 
-  // prendi il valore
+  // prendi il valore con il click
   searchBtn.click(function(){
+  search( template, searchInput, movieList )
+
+}); // searchBtn
+
+// enter
+  searchInput.keypress(function(e){
+    if(e.which == 13){
+      search( template, searchInput, movieList )
+    }
+  }); // enter
+
+}); // ready
+
+// **********************************************
+// *************** functions ********************
+// **********************************************
+
+// milestone 3
+
+// search
+
+function search( template, searchInput, movieList ) {
   reset(movieList);
   var apiKey = 'd0f8455fc395e60bede1e8769f1753e2';
   var apiLang = 'it-IT';
@@ -41,16 +63,10 @@ $(document).ready(function(){
   } else {
 
   }
+};
 
-}); // searchBtn
 
-}); // ready
 
-// **********************************************
-// *************** functions ********************
-// **********************************************
-
-// milestone 3
 function getData(dataMovie, template, movieList) {
 
   $.ajax({
