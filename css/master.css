@@ -89,6 +89,13 @@
 
   .movie {
     width: 400px;
+    position: relative;
+  }
+
+  .card {
+    position: absolute;
+    top:0;
+    z-index: 1;
   }
 
   .header-search  #query-search {
