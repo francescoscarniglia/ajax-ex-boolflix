@@ -51,6 +51,7 @@ body {
   border:0;
   padding: 6px;
   text-transform: uppercase;
+
 }
 
 #btn-search {
@@ -70,13 +71,12 @@ body {
   color: #fff;
   font-size: 18px;
   font-weight: 100;
+  border-bottom: 1px solid #fff;
 }
 
 .header-search  #query-search:focus {
   width: 280px;
   z-index: 1;
-  border: 0;
-  border-bottom: 1px solid #fff;
   outline: none;
 }
 
@@ -134,8 +134,6 @@ to {height:100%;}
   .header-search  #query-search {
     width: 280px;
     z-index: 1;
-    border: 0;
-    border-bottom: 1px solid #fff;
     outline: none;
   }
 }
