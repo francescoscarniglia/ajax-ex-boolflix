@@ -27,43 +27,6 @@
     <main class="movie-list">
 
 
-      <div class="movie">
-        <img src="img/no-poster.png" alt="">
-        <ul class="card">
-          <li>
-            <span>Titolo: </span>
-            <span> {{ title }}</span>
-          </li>
-
-          <li>
-            <span>Titolo originale:</span>
-            <span>{{ originalTitle }}</span>
-          </li>
-
-          <li>
-            <span>Lingua: </span>
-            <span>{{{ language }}}</span>
-          </li>
-
-          <li>
-            <span>Voto: </span>
-            <span>{{{ vote }}}</span>
-          </li>
-
-          <li>
-            <span>Tipo: </span>
-            <span>{{ type }}</span>
-          </li>
-
-          <li>
-            <span>Descrizione: </span>
-            <span>{{ overview }}</span>
-          </li>
-
-        </ul>
-      </div><!-- movie -->
-
-
     </main>
 
 
@@ -74,7 +37,7 @@
 <!-- templates -->
 <script id="movie-template" type="text/x-handlebars-template">
   <div class="movie">
-    <img src="{{ poster }}" alt="">
+    <img src="{{ poster }}" alt="" class="poster">
     <ul class="card">
       <li>
         <span>Titolo: </span>
