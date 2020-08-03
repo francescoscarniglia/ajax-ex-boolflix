@@ -8,3 +8,4 @@
 - Ajax
 - Handlebars
 
+![Desktop](img/boolFLix.gif)
